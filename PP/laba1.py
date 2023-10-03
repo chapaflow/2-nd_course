@@ -2,10 +2,19 @@ import random
 import numpy as np
 
 def formating(A):
-    for line in A:
-        for elements in line:
-            print(f"{elements}\t", end=' ')
-    print()
+    maxLen = 23
+    for row in A:
+        for x in row:
+            if x < 0:
+                checker = ""
+                x = round(x, 3)
+                print(checker + f'{x}', end=' ' * (maxLen + 1 - len(str(x))))
+            elif x >= 0:
+                checker = " "
+                x = round(x, 3)
+                print(checker + f'{x}', end=' ' * (maxLen - len(str(x))))
+
+        print()
 
 def task1():
     my_array = np.arange(10, 70, 2)
@@ -19,7 +28,8 @@ def task2(my_array):
     A = A.T
     print()
     print("Второе задание.")
-    formating(A)
+    for row in A:
+        print(" ".join(map(str, row)))
     return A
 
 def task3(A):
@@ -28,7 +38,8 @@ def task3(A):
     new_mat[ran_line] -= 5
     print()
     print("Третье задание.")
-    formating(new_mat)
+    for row in A:
+        print(" ".join(map(str, row)))
 
 def task4():
     B = np.random.uniform(0, 10, (6, 3))
@@ -42,8 +53,8 @@ def task5(A, B):
     b = np.sum(B, axis = 0)
     print()
     print("Пятое задание.")
-    print("Размер вектора a:", a.shape)
-    print("Размер вектора b:", b.shape)
+    print("Размер вектора a:", len(a))
+    print("Размер вектора b:", len(b))
 
 def task6(A, B):
     mat_multi = np.dot(A, B)
@@ -57,7 +68,8 @@ def task7(A, B):
     print()
     print("Седьмое задание.")
     print("Полученная матрица A:")
-    formating(A)
+    for row in A:
+        print(" ".join(map(str, row)))
     print("Полученная матрица B:")
     formating(B)
     return A, B
@@ -83,6 +95,7 @@ def task9(A, B):
     print("Девяятое задание.")
     print("Результат возведения в степень матрицы A:")
     formating(A)
+    print()
     print("Результат возведения в степень матрицы B:")
     formating(B)
 
