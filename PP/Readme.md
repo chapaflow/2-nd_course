@@ -1,4 +1,5 @@
 Расчетно-графическая работа по дисциплине "Практикум по программированию"
+
 Использован датасет Olympic Games Dataset (https://www.kaggle.com/datasets/andreinovikov/olympic-games/)
 
 В нем представлены:
